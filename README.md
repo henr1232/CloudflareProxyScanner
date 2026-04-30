@@ -102,11 +102,8 @@ Masscan 在 ASN 范围内的所有 IP 上执行高速端口扫描。扫描常用
 
 ## 二次验证
 
-扫描完成后，可以在 [proxyip.cmliussss.net](https://check.proxyip.cmliussss.net/) 对 CF IP 进行额外验证，包括：
-- 连接成功率
-- 地理位置
-- ASN 信息
-- 出口节点映射
+扫描完成后，可以在 [proxyip.cmliussss.net](https://check.proxyip.cmliussss.net/) 对Cloudflare反代IP进行额外验证，包括：
+
 
 ### 使用二次验证脚本
 
@@ -134,10 +131,6 @@ CloudflareProxyScanner/
 ├── masscan.exe                 # 端口扫描工具
 ├── main.py                     # 主程序源码
 ├── validate_proxy.py           # 二次验证脚本
-├── README.md                   # 英文说明
-├── README_CN.md                # 中文说明
-├── LICENSE                     # MIT许可证
-└── .gitignore                  # Git忽略文件
 ```
 
 ## 技术栈
