@@ -101,7 +101,7 @@ Masscan 在 ASN 范围内的所有 IP 上执行高速端口扫描。扫描常用
 
 ## 二次验证
 
-扫描完成后，可以在 [proxyip.cmliussss.net](https://check.proxyip.cmliussss.net/) 对Cloudflare反代IP进行额外验证，或者
+扫描完成后，可以在 [proxyip.cmliussss.net](https://check.proxyip.cmliussss.net/) 对 Cloudflare反代IP 进行额外验证，或者
 
 
 ### 使用二次验证脚本
