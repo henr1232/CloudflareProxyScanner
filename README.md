@@ -10,12 +10,11 @@
 
 - **ASN IP 段提取**：从 ipinfo.io 或 whois.ipip.net 获取任意 ASN 的所有 IP 段
 - **端口扫描**：使用 masscan 扫描 ASN 范围内所有 IP 的开放端口
-- **Cloudflare 检测**：识别哪些 IP 是 Cloudflare 的反向代理
+- **Cloudflare 反代检测**：识别哪些 IP 是 Cloudflare 的反向代理
 - **实时进度显示**：所有操作过程都有实时进度和日志跟踪
 - **智能跳过**：自动跳过已完成步骤，复用之前的结果
-- **暂停/继续**：支持随时暂停和恢复 Cloudflare 检测
+- **暂停/继续**：支持随时暂停和恢复
 - **多线程支持**：可配置线程数，快速检测
-- **实时保存**：检测到一个 CF IP 就实时保存到文件
 
 ## 系统架构
 
@@ -25,9 +24,9 @@
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                  │
 │  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐      │
-│  │   步骤1     │───▶│   步骤2     │───▶│   步骤3     │      │
-│  │  ASN IP     │    │   Masscan   │    │   CF        │      │
-│  │  提取       │    │   端口扫描   │    │   检测      │      │
+│  │   步骤1      │───▶│   步骤2      │───▶│   步骤3     │      │
+│  │  ASN IP      │    │   Masscan    │    │   Cloudflare │      │
+│  │  提取        │    │   端口扫描    │    │   反代检测    │      │
 │  └──────────────┘    └──────────────┘    └──────────────┘      │
 │         │                   │                   │              │
 │         ▼                   ▼                   ▼              │
@@ -43,7 +42,7 @@
 2. 工具获取该 ASN 下的所有 IP 段
 3. 工具使用 masscan 扫描开放端口（80, 443, 8080）
 4. 工具测试每个开放 IP，检测是否为 Cloudflare 反代
-5. 验证后的 CF IP 可在 proxyip.cmliussss.net 进行二次验证
+5. 验证后的 Cloudflare反代IP 可在 proxyip.cmliussss.net 进行二次验证
 ```
 
 ## 工作原理
@@ -102,7 +101,7 @@ Masscan 在 ASN 范围内的所有 IP 上执行高速端口扫描。扫描常用
 
 ## 二次验证
 
-扫描完成后，可以在 [proxyip.cmliussss.net](https://check.proxyip.cmliussss.net/) 对Cloudflare反代IP进行额外验证，包括：
+扫描完成后，可以在 [proxyip.cmliussss.net](https://check.proxyip.cmliussss.net/) 对Cloudflare反代IP进行额外验证，或者
 
 
 ### 使用二次验证脚本
